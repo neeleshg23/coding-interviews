@@ -4,6 +4,8 @@
 #include<queue>
 using namespace std;
 
+
+typedef pair<int, string> pi;
 class AllOne {
 public:
     AllOne()
@@ -27,17 +29,19 @@ public:
 
     string getMaxKey()
     {
-        return "aa";
+        pi top = maxH.top();
+        return top.second;
     }
 
     string getMinKey()
     {
-        return "bb";
+        pi top = minH.top();
+        return top.second;
     }
 private:
     unordered_map<string, int> cnts;
-    priority_queue< pair<int, string> > minH;
-    priority_queue< pair<int, string> > maxH;
+    priority_queue<pi, vector<pi>, greater<pi>> minH;
+    priority_queue<pi> maxH;
 };
 
 int main(){
