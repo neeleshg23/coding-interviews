@@ -1,9 +1,12 @@
 CXX=g++
-CFLAGS = -Wall -g -std=c++17
+CFLAGS = -Wall -g -std=c++20
 
 FILE=lc150
 
 all: $(FILE).o
+
+%: %.cpp
+	$(CXX) $(CFLAGS) -o $*.o $*.cpp
 
 $(FILE).o: $(FILE).cpp
 	$(CXX) $(CFLAGS) -o $(FILE).o $(FILE).cpp

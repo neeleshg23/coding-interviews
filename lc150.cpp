@@ -7,8 +7,6 @@ using namespace std;
 int evaluateRPN(vector<string>& tokens)
 {
     stack<int> nums;
-    stack<char> ops;
-
     for(string s: tokens)
     {
         if(isdigit(s[s.length()-1]))
@@ -24,7 +22,7 @@ int evaluateRPN(vector<string>& tokens)
             cout<<ch<<" on"<<num1<<" "<<num2<<endl;
             
             if(ch=='+') nums.push(num1+num2);
-            else if(ch=='-') nums.push(num1-num2);
+            else if(ch=='-') nums.push(num2-num1);
             else if(ch=='*') nums.push(num1*num2);
             else if(ch=='/') nums.push(num2/num1);
         } 
