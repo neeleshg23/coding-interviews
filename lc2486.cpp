@@ -2,7 +2,7 @@
 #include<string>
 using namespace std;
 
-int appendCharacters(string s, string t)
+int appendCharactersPartial(string s, string t)
 {
     int tIdx=0;
     while(tIdx<t.length())
@@ -18,6 +18,18 @@ int appendCharacters(string s, string t)
         }
     }
     return 0;
+}
+
+int appendCharacters(string s, string t)
+{
+	int j=0; //index of how deep we are in t
+	for(auto ch: s)
+	{
+		if(ch==t[j]){
+			j++;
+		}
+	}
+	return t.size()-j;
 }
 
 int main()
