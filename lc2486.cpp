@@ -2,30 +2,34 @@
 #include<string>
 using namespace std;
 
-int makeSubsequence(string s, string t)
+int appendCharacters(string s, string t)
 {
-    int prevS=-1;
-    for(auto ch: t)
+    int tIdx=0;
+    while(tIdx<t.length())
     {
-        cout<<"prev "<<prevS<<" new "<<s.find(ch,0)<<endl;
-        cout<<s.find(ch,0)<<endl;
-        if(s.find(ch,0)<s.length() && prevS < s.find(ch,0))
+        char ch=t[tIdx];
+        if(s.find(ch)<s.length()) 
         {
             t.erase(t.begin());
-            prevS=s.find(ch,0);
         }
         else
         {
             return t.length();
         }
     }
-    return 666;
+    return 0;
 }
 
 int main()
 {
     string s="coaching";
     string t="coding";
-    cout<<makeSubsequence(s,t)<<endl;
+    cout<<appendCharacters(s,t)<<endl;
+    s="abcde";
+    t="a";
+    cout<<appendCharacters(s,t)<<endl;
+    s="z";
+    t="abcde";
+    cout<<appendCharacters(s,t)<<endl;
     return 0;
 }
