@@ -1,7 +1,7 @@
 CXX=g++
 CFLAGS = -Wall -g -std=c++20
 
-FILE=lc2486
+FILE=lc33
 
 all: $(FILE).o
 
