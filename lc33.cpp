@@ -4,30 +4,53 @@ using namespace std;
 
 int search(vector<int>& nums, int target)
 {
-    int lo=0;
-    int hi=nums.size()-1;
+    int l=0;
+    int r=nums.size()-1;
     int m=0;
-    while(lo<hi)
+
+    while(l<=r)
     {
-        m=(lo+hi)/2;
-        if(nums[lo]>nums[m])
+        m=(r-l)/2 + l;
+#if DEBUG
+        cout<< "L-"<<l<<" M-"<<m<<" R-"<<r<<endl;
+#endif 
+
+        if(nums[m]==target) return m;
+        
+        //left sorted portion
+        if(nums[l]<=nums[m])
         {
-            lo=m+1;
-        }
-        else
+           if(target<nums[l])
+           {
+              //search right
+              l=m+1;
+           }else if(target>nums[m])
+           {
+              l=m+1;
+           }else if(target<nums[m]){
+              r=m-1;
+           }
+        } else
         {
-            hi=m;
+            if(target>nums[r])
+            {
+                r=m-1;
+            }else if(target<nums[m])
+            {
+                r=m-1;
+            }else if(target>nums[m])
+            {
+                l=m+1;
+            }
         }
-    }
-    //smallest element is now held index lo and hi
-    
-    cout<<"p idx="<<hi<<endl;
-    return 1;    
+    }   
+
+    return -1;    
 }
 
 int main(){
     vector<int> v{4,5,6,7,0,1,2};
-    int target=0;
+    int target=3;
     cout<<search(v,target)<<endl;
     return 0;
 }
