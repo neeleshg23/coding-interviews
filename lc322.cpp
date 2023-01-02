@@ -2,9 +2,10 @@
 #include<vector>
 using namespace std;
 
-int coinChange(vector<int>& coins, int amt)
+int coinChangeGreedy(vector<int>& coins, int amt)
 {
     // Base Case
+    sort(coins.begin(), coins.end());
     if(amt==0) return 0;
 
     int res=0;
@@ -28,19 +29,15 @@ int coinChange(vector<int>& coins, int amt)
     return amt==0? res: -1;
 }
 
+int coinChange(vector<int>& c, int t)
+{
+    return 0;
+}
+
 int main()
 {
-vector<int> v{1,2,5};
-int t=11;
-cout<<coinChange(v,t)<<endl;
-    v.clear();
-    v.push_back(2);
-    t=3;
-    cout<<coinChange(v,t)<<endl;
-    
-    v.clear();
-    v.push_back(1);
-    t=0;
+    vector<int> v{186,419,83,408};
+    int t=6249;
     cout<<coinChange(v,t)<<endl;
  
     return 0;
