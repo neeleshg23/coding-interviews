@@ -32,7 +32,7 @@ int coinChangeGreedy(vector<int>& coins, int amt)
 
 int coinChange(vector<int>& c, int t)
 {
-    return 0;
+
 }
 
 int main()
