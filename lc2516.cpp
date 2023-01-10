@@ -2,7 +2,7 @@
 #include<string>
 using namespace std;
 
-void takeHelper(string s, int k, int (&letters)[3], int& res, int& count)
+void takeHelper(string s, int k, int (&letters)[3], int& res)
 {
     int n=s.length();
     for(int i=0; i<3; i++)
@@ -55,7 +55,7 @@ int takeCharactersRecursion(string s, int k)
 {
     int arr[3] = {k, k, k};
     int res=0;
-    takeHelper(s, k, arr, res, );
+    takeHelper(s, k, arr, res);
     return res;
 }
 
