@@ -2,9 +2,16 @@
 
 using namespace std;
 
-void Z(int &n)
+int Z(int &n)
 {
-    n *= 2; 
+    if (n<0) return -1;
+    int res=0;
+    int i=5;
+    while(n/i >= 1){
+        res+=n/i;
+        i*=5;
+    }
+    return res;
 }
 
 int main()
