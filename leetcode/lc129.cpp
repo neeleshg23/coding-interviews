@@ -1,5 +1,7 @@
 #include <bits/stdc++.h>
 
+using namespace std;
+
 struct TreeNode {
  	int val;
  	TreeNode *left;
@@ -25,9 +27,19 @@ int sumNumbers(TreeNode* root) {
 }
 
 int main(){
-    TreeNode t2 = new TreeNode(2);
-    TreeNode t3 = new TreeNode(3);
-    TreeNode t1 = new TreeNode(1, t2, t3);
-    cout << sumNumber(t1) << endl;
+    TreeNode* t2 = new TreeNode(2);
+    TreeNode* t3 = new TreeNode(3);
+    TreeNode* t1 = new TreeNode(1, t2, t3);
+    
+    cout << sumNumbers(t1) << endl;
+    
+    t1 = new TreeNode(1);
+    TreeNode* t5 = new TreeNode(5);
+    TreeNode* t9 = new TreeNode(9, t5, t1);
+    TreeNode* t0 = new TreeNode(0);
+    TreeNode* t4 = new TreeNode(4, t9, t0);
+
+    cout<< sumNumbers(t4) << endl;
+
     return 0;
 }
