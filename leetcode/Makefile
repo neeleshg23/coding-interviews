@@ -1,5 +1,5 @@
 CXX=g++
-CFLAGS=-Wall -g -std=c++20
+CFLAGS=-Wall -g -std=c++14
 DEFS=-DDEBUG
 FILE=lc2517
 
