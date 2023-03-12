@@ -9,3 +9,6 @@
 - Input files are within question folders
 - `make spoj*` compiles an `spoj*.o` executable which can be run with input files using `./spoj*.o < in.txt` without debug input
 - `make` compiles most recently worked on question with debug output
+
+**hackerrank directory**:
+- 
