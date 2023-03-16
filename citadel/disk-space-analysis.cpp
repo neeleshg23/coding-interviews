@@ -1,25 +1,26 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int diskSpace(vector<int> space, int x){
+int diskSpace(vector<int>& space, int x){
     int n = space.size();
-    priority_queue<int> res;
     deque<int> dq; //increasing monotonic queue
-
+    int res = 0;
     for (int i=0; i<n; i++){
         // remove elements that were in range and minimal but now not
-        if (!dq.empty() && dq.front() == i-x){
+        while (!dq.empty() && dq.front() <= i-x){
             dq.pop_front();
         }
         // remove elements which are larger than the current min
-        while (!dq.empty() && space[dq.back()] > space[i]){
+        while (!dq.empty() && space[dq.back()] >= space[i]){
             dq.pop_back();
         }
         dq.push_back(i);
         // only after reading x values, can we append to max heap
-        if (i >= x-1) res.push(space[dq.front()]);
+        if (i >= x-1) {
+            res = max(res, nums[dq.front()]);
+        }
     }
-    return res.top();
+    return res;
 }
 
 int main(){
